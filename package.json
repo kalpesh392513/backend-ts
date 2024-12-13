@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development ts-node ./src",
     "dev:hot": "nodemon --exec \"npm run dev\" --watch ./src --ext .ts",
     "lint": "eslint --flag unstable_ts_config",
-    "start": "nodemon src/app.ts",
+    "start": "nodemon src/index.ts",
     "test": "NODE_ENV=test ts-node ./spec",
     "test:hot": "nodemon --exec \"npm run test\" --watch ./src --watch ./spec --ext .ts",
     "type-check": "tsc --noEmit"
