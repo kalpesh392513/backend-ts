@@ -2,8 +2,7 @@
 import { IUser } from '@src/models/user.model';
 import { getRandomInt } from '@src/util/misc';
 import orm from '../MockOrm';
-import  {mDbinstance} from "@src/repos/mongo/Schemas/mongoose.connection"
-import  {Person} from "src/models/person.model"
+
 // **** Functions **** //
 
 /**

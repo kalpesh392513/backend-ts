@@ -1,8 +1,8 @@
 import logger from "jet-logger"
 const mongoose = require("mongoose");
 const mongoDBUrl = "mongodb://localhost:27017/";
-import personSchema from "@src/repos/mongo/Schemas/person.schema";
-import studentSchema from "@src/repos/mongo/Schemas/student.schema";
+import personSchema from "@src/Schemas/person.schema";
+import studentSchema from "@src/Schemas/student.schema";
 
 
 

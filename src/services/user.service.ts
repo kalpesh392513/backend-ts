@@ -1,7 +1,7 @@
 import { RouteError } from '@src/common/route-errors';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
 import UserRepo from '@src/repos/mongo/user.repo';
-import { IUser } from '@src/models/User';
+import { IUser } from '@src/models/user.model';
 // import db from '@src/repos/mysql.connection.repo'
 
 // **** Variables **** //

@@ -5,11 +5,11 @@ import HttpStatusCodes from '@src/common/HttpStatusCodes';
 import UserService from '@src/services/user.service';
 import User from '@src/models/user.model';
 // import db from '../repos/mysql.connection.repo'
-import {mDbinstance}  from "@src/repos/mongo/Schemas/mongoose.connection"
+import {mDbinstance}  from "@src/repos/mongo/mongoose.connection"
 import logger from "jet-logger"
 
 
-import { parseReq, IReq, IRes } from './common';
+import { parseReq, IReq, IRes } from '../routes/common';
 
 // **** Variables **** //
 
