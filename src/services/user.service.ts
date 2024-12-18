@@ -1,6 +1,6 @@
 import { RouteError } from '@src/common/route-errors';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
-import UserRepo from '@src/repos/user.repo';
+import UserRepo from '@src/repos/mongo/user.repo';
 import { IUser } from '@src/models/User';
 // import db from '@src/repos/mysql.connection.repo'
 

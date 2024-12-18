@@ -6,7 +6,7 @@ import logger from 'jet-logger';
 
 import app from '@src/server';
 
-import UserRepo from '@src/repos/user.repo';
+import UserRepo from '@src/repos/mongo/user.repo';
 import User, { IUser } from '@src/models/User';
 import { USER_NOT_FOUND_ERR } from '@src/services/user.service';
 

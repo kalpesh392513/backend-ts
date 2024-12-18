@@ -3,9 +3,9 @@ import { isNumber } from 'jet-validators';
 import { transform } from 'jet-validators/utils';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
 import UserService from '@src/services/user.service';
-import User from '@src/models/User';
+import User from '@src/models/user.model';
 // import db from '../repos/mysql.connection.repo'
-import mDbinstance  from "@src/repos/mongoose.connection"
+import mDbinstance  from "@src/repos/mongo/mongoose.connection"
 import logger from "jet-logger"
 
 
@@ -35,6 +35,7 @@ async function getAll(_: IReq, res: IRes) {
 /**
  * Add one user.
  */
+
 async function add(req: IReq, res: IRes) {
   // const { user } = Validators.add(req.body);
   logger.warn("add method called ............")
