@@ -1,10 +1,12 @@
+
 import { isNumber } from 'jet-validators';
 import { transform } from 'jet-validators/utils';
-
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
-import UserService from '@src/services/UserService';
+import UserService from '@src/services/user.service';
 import User from '@src/models/User';
-import db from '../repos/connection'
+// import db from '../repos/mysql.connection.repo'
+import mDbinstance  from "@src/repos/mongoose.connection"
+import logger from "jet-logger"
 
 
 import { parseReq, IReq, IRes } from './common';
@@ -24,9 +26,8 @@ const Validators = {
  * Get all users.
  */
 async function getAll(_: IReq, res: IRes) {
-  console.log('getall called');
   console.log( _.params);
-  console.log( _.body);
+  console.log( _.body); 
   const users = await UserService.getAll();
   res.status(HttpStatusCodes.OK).json("id ="+_.params.id+ " not found "+users);
 }
@@ -36,9 +37,11 @@ async function getAll(_: IReq, res: IRes) {
  */
 async function add(req: IReq, res: IRes) {
   // const { user } = Validators.add(req.body);
-  // const user = req.body
+  logger.warn("add method called ............")
+  await new mDbinstance.personModel({name :"abc ", address : "dummy "}).save()
+
   // await UserService.addOne(user);
-  await UserService.addOne();
+  // await UserService.addOne();
 
   res.status(HttpStatusCodes.CREATED).end();
 }

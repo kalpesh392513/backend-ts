@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development ts-node ./src",
     "dev:hot": "nodemon --exec \"npm run dev\" --watch ./src --ext .ts",
     "lint": "eslint --flag unstable_ts_config",
-    "start": "nodemon src/index.ts",
+    "start": "nodemon src/app.ts",
     "test": "NODE_ENV=test ts-node ./spec",
     "test:hot": "nodemon --exec \"npm run test\" --watch ./src --watch ./spec --ext .ts",
     "type-check": "tsc --noEmit"
@@ -30,6 +30,7 @@
     "jet-validators": "^1.0.14",
     "jsonfile": "^6.1.0",
     "module-alias": "^2.2.3",
+    "mongoose": "^8.9.1",
     "morgan": "^1.10.0",
     "mysql2": "^3.11.5",
     "sequelize": "^6.37.5"

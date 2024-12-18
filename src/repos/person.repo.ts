@@ -1,4 +1,5 @@
 import { DataTypes, Sequelize } from "sequelize";
+import logger  from 'jet-logger'
 
 export default (sequelize:Sequelize)=>{
     const Person = sequelize.define("person", {
@@ -20,9 +21,9 @@ export default (sequelize:Sequelize)=>{
     )
 
     sequelize.sync().then(() => {
-      console.log('sync successfully!');
+      logger.info('sync successfully!');
     }).catch((error: Error) => {
-      console.error('Unable to sync : ', error);
+      logger.err('Unable to sync : '+ error);
     });
     return Person;
   }

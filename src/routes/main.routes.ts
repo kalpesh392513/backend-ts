@@ -1,6 +1,6 @@
 import { Router } from 'express';
  import Paths from './common/Paths';
-import UserRoutes from './user-routes';
+import UserRoutes from './user.routes';
 // **** Variables **** //
 
 const apiRouter = Router();
@@ -18,7 +18,7 @@ userRouter.put(Paths.Users.Update, UserRoutes.update);
 userRouter.delete(Paths.Users.Delete, UserRoutes.delete);
 // userRouter.get('/get',person.getAllRecords)
 // Add UserRouter
-apiRouter.use('/', userRouter);
+apiRouter.use(Paths.Users.Base, userRouter);
 
 
 // **** Export default **** //

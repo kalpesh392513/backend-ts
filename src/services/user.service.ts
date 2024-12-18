@@ -1,9 +1,8 @@
 import { RouteError } from '@src/common/route-errors';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
-
-import UserRepo from '@src/repos/UserRepo';
+import UserRepo from '@src/repos/user.repo';
 import { IUser } from '@src/models/User';
-import db from '@src/repos/connection'
+// import db from '@src/repos/mysql.connection.repo'
 
 // **** Variables **** //
 
@@ -16,15 +15,15 @@ export const USER_NOT_FOUND_ERR = 'User not found';
  * Get all users.
  */
 async function getAll(): Promise<any> {
-  return db.Person.findAll()
+  // return db.Person.findAll()
   // return UserRepo.getAll();
 }
 
 /**
  * Add one user.
  */
-function addOne() {
- return db.Person.build({ Id:1 ,name: "abc" ,address: "india"}).save()
+function addOne(data:IUser) {
+//  return db.Person.build({ Id:1 ,name: "abc" ,address: "india"}).save()
   // return db.Person.findAll()
 
 }

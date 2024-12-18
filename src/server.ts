@@ -4,17 +4,15 @@ import helmet from 'helmet';
 import express, { Request, Response, NextFunction } from 'express';
 import logger from 'jet-logger';
 import 'express-async-errors';
-import BaseRouter from '@src/routes/main-routes';
+import BaseRouter from '@src/routes/main.routes';
 import Paths from '@src/routes/common/Paths';
 import Env from '@src/common/Env';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
 import { RouteError } from '@src/common/route-errors';
 import { NodeEnvs } from '@src/common/constants';
-import User from './models/User';
 // **** Variables **** //
 
 const app = express();
-console.log("line after cnst");
 
 // **** Setup **** //
 
@@ -31,7 +29,6 @@ if (Env.NodeEnv === NodeEnvs.Dev.valueOf()) {
 // Security
 if (Env.NodeEnv === NodeEnvs.Production.valueOf()) {
   console.log("running in prod mode..........................!");
-  console.log(1/0);
   
 }
 
@@ -54,7 +51,6 @@ app.use((err: Error, _: Request, res: Response, next: NextFunction) => {
 
 // Nav to users pg by default
 app.get('/', (req: Request, res: Response) => {
-  console.log("url  / called 1");
    res.send('users');
 });
 
