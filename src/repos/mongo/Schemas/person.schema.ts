@@ -1,13 +1,9 @@
 import { Mongoose } from "mongoose";
 
-
-
 export default (mongoose:Mongoose)=>{
-
-const Schema = mongoose.Schema;
-const personSchema = new Schema({
+const personSchema = new mongoose.Schema({
   name: String,
-  address: Date,
+  address: String,
 });
 return mongoose.model("Person",personSchema );
 }

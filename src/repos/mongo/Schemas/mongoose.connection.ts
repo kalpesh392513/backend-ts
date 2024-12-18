@@ -1,12 +1,13 @@
 import logger from "jet-logger"
 const mongoose = require("mongoose");
-const mongoDB = "mongodb://localhost:27017/";
-import personSchema from "@src/repos/mongo/Schemas/student.mongo.schema";
+const mongoDBUrl = "mongodb://localhost:27017/";
+import personSchema from "@src/repos/mongo/Schemas/person.schema";
+import studentSchema from "@src/repos/mongo/Schemas/student.schema";
 
 
 
 async function main() {
-  await mongoose.connect(mongoDB);
+  await mongoose.connect(mongoDBUrl);
   logger.info("connected to db...................................");
 }
 
@@ -15,6 +16,7 @@ main().catch((err) => logger.err(err));
 // add more schemas to object 
 const mDbinstance = {
   personModel: personSchema(mongoose),
+  studentSchema : studentSchema(mongoose)
 };
 
-export default mDbinstance;
+export {mDbinstance};
