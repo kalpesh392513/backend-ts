@@ -1,15 +1,13 @@
-import morgan from 'morgan';
-import path from 'path';
-import helmet from 'helmet';
-import express, { Request, Response, NextFunction } from 'express';
-import logger from 'jet-logger';
-import 'express-async-errors';
-import BaseRouter from '@src/routes/main.routes';
-import Paths from '@src/routes/common/Paths';
-import Env from '@src/common/Env';
-import HttpStatusCodes from '@src/common/HttpStatusCodes';
-import { RouteError } from '@src/common/route-errors';
-import { NodeEnvs } from '@src/common/constants';
+import morgan from "morgan";
+import express, { Request, Response, NextFunction } from "express";
+import logger from "jet-logger";
+import "express-async-errors";
+import BaseRouter from "@src/routes/main.routes";
+import Paths from "@src/routes/common/Paths";
+import Env from "@src/common/Env";
+import HttpStatusCodes from "@src/common/HttpStatusCodes";
+import { RouteError } from "@src/common/route-errors";
+import { NodeEnvs } from "@src/common/constants";
 // **** Variables **** //
 
 const app = express();
@@ -18,18 +16,17 @@ const app = express();
 
 // Basic middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // Show routes called in console during development
 if (Env.NodeEnv === NodeEnvs.Dev.valueOf()) {
-  console.log("running in dev mode..........................!",Env);
-  app.use(morgan('dev'));
+  console.log("running in dev mode..........................!", Env);
+  app.use(morgan("dev"));
 }
 
 // Security
 if (Env.NodeEnv === NodeEnvs.Production.valueOf()) {
   console.log("running in prod mode..........................!");
-  
 }
 
 // Add APIs, must be after middleware
@@ -47,19 +44,6 @@ app.use((err: Error, _: Request, res: Response, next: NextFunction) => {
   }
   return next(err);
 });
-
-
-// Nav to users pg by default
-app.get('/', (req: Request, res: Response) => {
-   res.send('users');
-});
-
-// Redirect to login if not logged in.
-app.get('/users', (req: Request, res: Response) => {
-   res.send('All users');
-});
-
-
 
 // **** Export default **** //
 

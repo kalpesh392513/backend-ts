@@ -4,18 +4,18 @@ import PersonRoutes from "@src/services/person.service";
 import logger from "jet-logger";
 
 const apiRouter = Router();
+const personRouter = Router();
 
-const userRouter = Router();
 
-// Get all users
-userRouter.get("/", (req, res) => {
-  logger.warn("/ in person routes");
-  res.send("csdgb");
-});
-userRouter.get(Paths.Person.Add, PersonRoutes.add);
+// add routes here
+personRouter.get(Paths.Person.Add, PersonRoutes.add);
 
-apiRouter.use("/", userRouter);
 
-// **** Export default **** //
+
+
+
+
+
+apiRouter.use("/", personRouter);
 
 export default apiRouter;

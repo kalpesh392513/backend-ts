@@ -4,14 +4,11 @@ import { transform } from 'jet-validators/utils';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
 import UserService from '@src/services/user.service';
 import User from '@src/models/user.model';
-// import db from '../repos/mysql.connection.repo'
 import {mDbinstance}  from "@src/repos/mongo/mongoose.connection"
 import logger from "jet-logger"
-
-
 import { parseReq, IReq, IRes } from '../routes/common';
 
-// **** Variables **** //
+
 
 const Validators = {
   add: parseReq({ user: User.test }),
@@ -37,7 +34,7 @@ async function getAll(_: IReq, res: IRes) {
  */
 
 async function add(req: IReq, res: IRes) {
-  // const { user } = Validators.add(req.body);
+  const { user } = Validators.add(req.body);
   logger.warn("add method called ............")
   await new mDbinstance.personModel({name :"abc ", address : "dummy "}).save()
 

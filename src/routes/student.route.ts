@@ -2,23 +2,17 @@ import { Router } from "express";
 import Paths from "./common/Paths";
 import StudentService from "../services/student.service";
 import logger from "jet-logger";
-// **** Variables **** //
 
 const apiRouter = Router();
+const studentRouter = Router();
 
-// ** Add UserRouter ** //
+//add routes here
+studentRouter.get(Paths.Student.Get + "/:id", StudentService.getAll);
+studentRouter.get(Paths.Student.Add, StudentService.add);
+studentRouter.put(Paths.Student.Update, StudentService.update);
+studentRouter.delete(Paths.Student.Delete, StudentService.delete);
 
-// Init router
-const userRouter = Router();
-// Get all users
 
-userRouter.get(Paths.Student.Get + "/:id", StudentService.getAll);
-userRouter.get(Paths.Student.Add, StudentService.add);
-userRouter.put(Paths.Student.Update, StudentService.update);
-userRouter.delete(Paths.Student.Delete, StudentService.delete);
 
-apiRouter.use("/", userRouter);
-
-// **** Export default **** //
-
+apiRouter.use("/", studentRouter);
 export default apiRouter;
